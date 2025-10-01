@@ -19,8 +19,8 @@ Automated CI/CD pipeline on GitLab with build → test → deploy → run stages
 
 Clone the repo:
 
-git clone https://gitlab.com/your-username/customer-churn-prediction.git
-cd customer-churn-prediction
+git clone https://gitlab.com/anshukesoju/customer-churn-prediction.git
+
 
 
 Install dependencies:
