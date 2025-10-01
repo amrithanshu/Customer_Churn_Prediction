@@ -13,20 +13,7 @@ Predicting churn for new customer data via CLI.
 
 Automated CI/CD pipeline on GitLab with build → test → deploy → run stages.
 
-📂 Project Structure
-customer-churn-prediction/
-│── data/
-│   └── churn_data.csv         # Sample dataset (50 rows)
-│
-│── models/
-│   └── churn_model.pkl        # Trained model (auto-generated after training)
-│
-│── src/
-│   └── churn_predictor.py     # Training + Prediction script
-│
-│── requirements.txt           # Python dependencies
-│── .gitlab-ci.yml             # CI/CD pipeline (build, test, deploy, run)
-│── README.md                  # Project documentation
+
 
 ⚙️ Installation
 
