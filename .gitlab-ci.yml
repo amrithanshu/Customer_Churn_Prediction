@@ -1,52 +1,30 @@
+image: python:3.11  
+
 stages:
   - build
   - test
   - deploy
   - run
 
-variables:
-  PYTHON_VERSION: "3.9"
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-
-cache:
-  paths:
-    - .cache/pip
-
-before_script:
-  - python --version
-  - pip install --upgrade pip
-  - pip install -r requirements.txt
-
 build:
   stage: build
   script:
-    - echo "📦 Installing dependencies and preparing environment..."
-    - mkdir -p models
-  artifacts:
-    paths:
-      - models/
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+    - echo "Build completed"
 
 test:
   stage: test
   script:
-    - echo "🧪 Running training to ensure model works..."
-    - python src/churn_predictor.py --train
-    - echo "✅ Training successful"
-  artifacts:
-    paths:
-      - models/churn_model.pkl
+    - pip install -r requirements.txt
+    - pytest tests/
 
 deploy:
   stage: deploy
   script:
-    - echo "🚀 Deploy stage: model ready for prediction pipeline."
-    - ls -lh models/
-  artifacts:
-    paths:
-      - models/churn_model.pkl
+    - echo "Deploy stage - customize as needed"
 
 run:
   stage: run
   script:
-    - echo "🔮 Running prediction with sample input..."
-    - python src/churn_predictor.py --predict 40 15 250 2
+    - python customer_churn/customer_churn.py
